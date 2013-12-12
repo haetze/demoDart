@@ -3,6 +3,7 @@ import 'dart:io';
 List<String> dd = new List(10000);
 
 void main(){
+  DateTime tim = new DateTime.now();
   //loads the file
   File file = new File('backupSms.xml');
   //creates a var for the file string
@@ -29,6 +30,8 @@ void main(){
     else
       n = dd.length;
   }
+  DateTime tim2 = new DateTime.now();
+  print("${tim2.millisecondsSinceEpoch - tim.millisecondsSinceEpoch}");
 }
 
 
@@ -38,8 +41,8 @@ void extractData(String forSearch, String toSearch, int n){
   if(forSearch.indexOf(toSearch) == -1){
   }else{
     int position = forSearch.indexOf(toSearch);
-    int end = forSearch.indexOf('"', position+6);
-    String data = forSearch.substring(position, end);
+    int end = forSearch.indexOf('"', position+toSearch.length+2);
+    String data = forSearch.substring(position, end+1);
     try{
       dd[n] = data;
       extractData(forSearch.substring(end, forSearch.length), toSearch, n+1);

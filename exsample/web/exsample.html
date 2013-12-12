@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+  <head name = "test">
+    <meta charset="utf-8">
+    <title>Exsample</title>
+    <link rel="stylesheet" href="exsample.css">
+  </head>
+  <body>
+    <h1>Exsample</h1>
+    
+    <p onClick='test();' id="hi">Hello world from Dart!</p>
+    
+    <div id="sample_container_id">
+      <p id="sample_text_id"></p>
+    </div>
+
+    <script type="application/dart" src="exsample.dart"></script>
+    <script src="packages/browser/dart.js"></script>
+    <script>
+    var test = function(){
+      alert("do");
+    };
+    </script>
+  </body>
+</html>

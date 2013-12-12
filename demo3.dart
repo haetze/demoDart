@@ -4,27 +4,30 @@ import 'dart:math';
 
 
 void main(){
-
-  var child = spawnFunction(childIsolate);
   var receiver = new ReceivePort();
-  receiver.receive((msg, _){
+  var child1 = Isolate.spawn(childIsolate, receiver.sendPort);
+  Isolate child;
+  child1.then((value){
+    child = value;
+  });
+  receiver.listen((msg, _){
     if(msg == 'shutdown'){
       print('shutting down');
       receiver.close();
     }
     else{
-      print('$msg');
-      child.send('do more work', receiver.toSendPort());
+      print('the child sends :$msg');
+      child.send('do more work', receiver.sendPort);
     }
   });
-  child.send('do work please', receiver.toSendPort());
+  child.send('do work please', receiver.sendPort);
   
   Future result = doLongWork();
   result.catchError((e)=>print("$e happend"));
   result.then((value) => beginAsync(value))
         .then((value) => weAreDone(value))
-        .then((value) => print("done"));
-        
+        .then((value) => print("$value"));
+  print("behind asic");
 }
 
         
@@ -43,23 +46,31 @@ void childIsolate(){
         });
 }
 
-int beginAsync(value){
+Future<int> beginAsync(value){
+  Completer completer = new Completer(); 
   print('begin async handling');
-  return value;
+  for(int i = 0; i<10; i++){
+    i--;
+    i++;
+  }
+  completer.complete(value);
+  return completer.future;
 }
 
 
-void weAreDone(sucess){
+Future <String>weAreDone(sucess){
+  Completer com = new Completer();
   print("$sucess");
-
+  com.complete("hiw");
+  return com.future;
 
 }
 
 Future<int> doLongWork(){
-  var completer = new Completer();
+  Completer completer = new Completer();
   int n = -1000;
-  while(n<1000000){
-    for(int d = 0; n<10000; n++){
+  while(n<10000){
+    for(int d = 0; d<100; d++){
     }
     n++;      
   }

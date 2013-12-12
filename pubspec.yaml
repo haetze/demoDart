@@ -1,0 +1,4 @@
+name: DartSwarm
+description: A sample application
+dependencies:
+  args: any

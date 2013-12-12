@@ -2,7 +2,7 @@ import 'dart:io';
 import 'dart:async';
 
 void main(){
-  HttpServer.bind('127.0.0.1', 8080).then((dynamic server) => serverHandler(server));
+  HttpServer.bind('192.168.2.111'/*127.0.0.1*/, 1234).then((dynamic server) => serverHandler(server));
   print('server created');
 }
 
@@ -23,8 +23,9 @@ void serverHandler(dynamic server){
 }
 
 
-Future<String> getFromPath(var path){
+Future<String> getFromPath(Path path){
   var completer = new Completer();
+  File script = new File(new Options().script);
   String stringPath = path.toString() == '/' ? '/index.html' : path.toString();
   String pathString;
   pathString =stringPath.substring(1, stringPath.length);
@@ -45,7 +46,4 @@ Future<String> getFromPath(var path){
   }
   return completer.future;
 }
-
-
-
 
