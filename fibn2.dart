@@ -25,7 +25,7 @@ void main(){
   }catch(e){
     print("$e");
   }
-  for(int i = 1; i<a; i++){
+  for(int i = 1; i<1000; i++){
     f();
   }
   print(f());
