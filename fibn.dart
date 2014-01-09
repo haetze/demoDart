@@ -13,7 +13,7 @@ void main(){
   Stdin stream = stdin;
   var str = stream.readLineSync(encoding: UTF8);
   try{
-    start(int.parse(str));
+    start( 10  /*int.parse(str)*/);
   }catch(e){
     print("$e");
   }
