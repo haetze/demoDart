@@ -10,10 +10,10 @@ int fib(int n){
 }
 
 void main(){
-  Stdin stream = stdin;
-  var str = stream.readLineSync(encoding: UTF8);
+  /*Stdin stream = stdin;
+  var str = stream.readLineSync(encoding: UTF8);*/
   try{
-    start( 10  /*int.parse(str)*/);
+    start( 100  /*int.parse(str)*/);
   }catch(e){
     print("$e");
   }
