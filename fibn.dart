@@ -22,10 +22,5 @@ void main(){
 
 
 void start(int e){
-  
-  DateTime t1 = new DateTime.now();
   print("fib num at pos $e ${fib(e)}");
-  DateTime t2 = new DateTime.now();
-  print(" needed :${t2.millisecondsSinceEpoch - t1.millisecondsSinceEpoch}");
-  
 }
