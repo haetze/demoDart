@@ -1,9 +1,8 @@
 import 'dart:io';
 
-List<String> dd = new List(10000);
+List<String> dd = new List(1600);
 
 void main(){
-  DateTime tim = new DateTime.now();
   //loads the file
   File file = new File('backupSms.xml');
   //creates a var for the file string
@@ -22,20 +21,35 @@ void main(){
   }
   //generartes the list of data
   extractData(fileString, searchPart, 0);
-
+/*
   //prints out 
   for(int n = 0; n<dd.length; ++n){
     if(dd[n] != null)
       print("${dd[n]} , $n");
     else
       n = dd.length;
+  
   }
-  DateTime tim2 = new DateTime.now();
-  print("${tim2.millisecondsSinceEpoch - tim.millisecondsSinceEpoch}");
+  */
+}
+
+
+void extractData(String forSearch, String toSearch, int n){
+  if(forSearch.indesOf(toSearch) == -1){  
+  }else{/*
+    int pos = forSearch.indexOf(toSearch);
+    int end = forSearch.indexOf('"', pos+toSearch.length+2);
+    String data = forSearch.substring(pos, end+1);
+    print("test");
+    extractData(forSearch.substring(end, forSearch.length), toSearch,n+1);
+    */  
+  }
 }
 
 
 
+/*
+generats a list, needs more memory
 void extractData(String forSearch, String toSearch, int n){
   //get the position
   if(forSearch.indexOf(toSearch) == -1){
@@ -47,11 +61,11 @@ void extractData(String forSearch, String toSearch, int n){
       dd[n] = data;
       extractData(forSearch.substring(end, forSearch.length), toSearch, n+1);
     }catch(e){
-      print('error not big enough elements in list avible');
+      print('error not big enough elements in list avible $n');
     }
    // print("$data");
   }
 }
-  
+  */
 
 
