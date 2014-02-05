@@ -1,6 +1,6 @@
 import 'dart:io';
 
-List<String> dd = new List(1600);
+////List<String> dd = new List(1600);
 
 void main(){
   //loads the file
@@ -35,14 +35,14 @@ void main(){
 
 
 void extractData(String forSearch, String toSearch, int n){
-  if(forSearch.indesOf(toSearch) == -1){  
-  }else{/*
+  if(forSearch.indexOf(toSearch) == -1){  
+  }else{
     int pos = forSearch.indexOf(toSearch);
     int end = forSearch.indexOf('"', pos+toSearch.length+2);
     String data = forSearch.substring(pos, end+1);
-    print("test");
+    print("$data");
     extractData(forSearch.substring(end, forSearch.length), toSearch,n+1);
-    */  
+      
   }
 }
 
