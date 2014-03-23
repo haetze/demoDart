@@ -1,4 +1,3 @@
-//import 'package:args/args.dart';
 import 'dart:io';
 import 'dart:convert';
 
@@ -10,10 +9,8 @@ int fib(int n){
 }
 
 void main(){
-  /*Stdin stream = stdin;
-  var str = stream.readLineSync(encoding: UTF8);*/
   try{
-    start( 100  /*int.parse(str)*/);
+    start(50  /*int.parse(str)*/);
   }catch(e){
     print("$e");
   }
