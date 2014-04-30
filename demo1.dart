@@ -1,3 +1,4 @@
+#!/usr/bin/dart
 import 'dart:math';
 
 class Point{
