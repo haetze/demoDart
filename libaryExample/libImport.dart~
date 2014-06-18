@@ -1,0 +1,33 @@
+import 'point.dart';
+
+void main(){
+  // mesuer the time passes
+  DateTime now = new DateTime.now();
+  print("${now.millisecondsSinceEpoch}");
+  
+  //creates to example point
+  Point p1 = new Point(12,13, 14);
+  Point p2 = new Point(14,12, 15);
+
+  //calculates distance should be the same
+  num d1 = p1.distance3D(p2);
+  num d2 = p2.distance3D(p1);
+  print("${p1.x}");
+  print("${p2.x}");
+  print("$d1");
+  print("$d2");
+
+  //creates two reverse Vektors
+  Vektor vek = new Vektor.fromPoints(p1, p2);
+  Vektor vek2 = new Vektor.fromPoints(p2, p1);
+  
+  //should be all zero
+  Vektor sumVek = vek.addVektor(vek2);
+  print("${sumVek.x}");
+  print("${sumVek.y}");
+  print("${sumVek.z}");
+
+  //time comparision 
+  DateTime now2 = new DateTime.now();
+  print("${now2.millisecondsSinceEpoch +- now.millisecondsSinceEpoch}");
+}

@@ -1,0 +1,13 @@
+import 'dart:math';
+
+void main(){
+  Random randgen = new Random();
+  while(true){
+    num n = randgen.nextInt(100);
+    if(n == 5)
+      break;
+    print('not yet with $n');
+  }
+  print('end of the loop');
+}
+
