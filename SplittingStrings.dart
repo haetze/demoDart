@@ -40,7 +40,7 @@ void extractData(String forSearch, String toSearch, int n){
     int pos = forSearch.indexOf(toSearch);
     int end = forSearch.indexOf('"', pos+toSearch.length+2);
     String data = forSearch.substring(pos, end+1);
-    print("$data");
+    print("$data \n");
     extractData(forSearch.substring(end, forSearch.length), toSearch,n+1);
       
   }
