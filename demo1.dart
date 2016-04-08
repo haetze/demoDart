@@ -1,4 +1,4 @@
-#!/usr/bin/dart
+#!dart
 import 'dart:math';
 
 class Point{
@@ -14,12 +14,31 @@ class Point{
       num distance = sqrt(dx*dx+dy*dy);
       return distance;
   }
+}
 
+class Rec {
+  num x;
+  num y;
+  Rec(this.x, this.y);
+
+  num area(){
+    return x*y;
+  }
 
 }
 
+class Square extends Rec {
+  Square(num x): super(x, x);
+}
+
+num x(Rec y) {
+  return y.x;
+}
+
+
+
 void main(){
-  Point p1 = new Point(1,8);
+  Point p1 = new Point(322,8);
   Point p2 = new Point(8,1);  
   print("${p1.x} \t${p1.y}");
   print("${p2.x} \t${p2.y}");
@@ -27,6 +46,8 @@ void main(){
   bool test = p1 == p2;
   print("$test");
   print("$dis");
+  Square s = new Square(2);
+  print("${x(s)}");
 
 }
 

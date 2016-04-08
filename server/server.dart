@@ -23,9 +23,9 @@ void serverHandler(dynamic server){
 }
 
 
-Future<String> getFromPath(Path path){
+Future<String> getFromPath(var path){
   var completer = new Completer();
-  File script = new File(new Options().script);
+  //File script = new File(new Options().script);
   String stringPath = path.toString() == '/' ? '/index.html' : path.toString();
   String pathString;
   pathString =stringPath.substring(1, stringPath.length);
